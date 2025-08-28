@@ -59,7 +59,7 @@ Apply the configuration: terraform apply
 - This structure allows for isolated management and deployment of resources per environment
 
 # Prerequisites
-- Terraform installed (version 0.13+)
+- Terraform installed (version 1.13.1)
 - AWS CLI configured with appropriate credentials
 - IAM permissions to create and manage AWS resources
 - SSH key pair for EC2 instance access (if needed)
