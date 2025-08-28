@@ -1,0 +1,193 @@
+variable "cidr_block" {
+    description = "This is the CIDR block for the VPC"
+    type = string
+    default = "192.168.0.0/16"
+  
+}
+
+variable "instance_tenancy" {
+    description = "This is the instance tenancy for the VPC"
+    type = string
+    default = "default"
+  
+}
+
+variable "name" {
+    description = "The name of the VPC"
+    type = string
+    default = "prod"
+  
+}
+
+variable "environment" {
+    description = "The environment for the VPC"
+    type = string
+    default = "production"
+  
+}
+
+variable "create_subnet" {
+    description = "Whether to create a subnet"
+    type = bool
+    default = true
+  
+}
+
+variable "count_subnets" {
+    description = "The number of subnets to create"
+    type = number
+    default = 2
+  
+}
+
+variable "alb_security_group_id" {
+  description = "ALB Security Group ID"
+  type = string
+}
+
+variable "db_security_group_id" {
+  description = "DB Security Group ID"
+  type = string
+}
+
+variable "app_security_group_id" {
+  description = "App Security Group ID"
+  type = string
+}
+
+variable "public_subnet_ids" {
+  description = "List of Public Subnet IDs"
+  type = list(string)
+}
+
+variable "private_subnet_ids" {
+  description = "List of Private Subnet IDs"
+  type = list(string)
+}
+
+variable "vpc_id" {
+  description = "VPC ID"
+  type = string
+}
+
+variable "ami_id" {
+  description = "The ID of the AMI to use for the EC2 instance"
+  type = string
+  default = "ami-020cba7c55df1f615"
+  
+}
+
+variable "instance_type" {
+    description = "The type of instance to use for the EC2 instance"
+    type = string
+    default = "t2.micro"
+  
+}
+
+variable "key_name" {
+    description = "The name of the key pair to use for the EC2 instance"
+    type = string
+    default = "systemadminkey"
+  
+}
+
+variable "user_data" {
+    description = "The user data to use for the EC2 instance"
+    type = string
+    default = "#!/bin/bash\necho Hello, World! > /var/www/html/index.html\nservice httpd start\nchkconfig httpd on"
+
+}
+
+variable "min_size" {
+    description = "The minimum size of the Auto Scaling group"
+    type = number
+    default = 1
+  
+}
+
+variable "max_size" {
+    description = "The maximum size of the Auto Scaling group"
+    type = number
+    default = 3
+  
+}
+
+variable "desired_capacity" {
+    description = "The desired capacity of the Auto Scaling group"
+    type = number
+    default = 1
+  
+}
+
+variable "allocated_storage" {
+    description = "The allocated storage in gigabytes"
+    type = number
+    default = 10
+  
+}
+
+variable "db_name" {
+    description = "The name of the database to create"
+    type = string
+    default = "devdb"
+  
+}
+
+variable "db_engine" {
+    description = "The database engine to use"
+    type = string
+    default = "mysql"
+  
+}
+
+variable "db_engine_version" {
+    description = "The version of the database engine to use"
+    type = string
+    default = "8.0"
+  
+}
+
+variable "db_instance_class" {
+    description = "The instance class to use for the database"
+    type = string
+    default = "db.t3.micro"
+  
+}
+
+variable "db_username" {
+    description = "The username to use for the database"
+    type = string
+    default = "admin"
+  
+}
+
+variable "db_password" {
+    description = "The password to use for the database"
+    type = string
+    default = "password123"
+  
+}
+
+variable "autoscaling_group_name" {
+    description = "The name of the Auto Scaling group"
+    type = string
+  
+}
+
+variable "scale_out_policy_arn" {
+    description = "The ARN of the scale out policy"
+    type = string
+  
+}
+
+variable "scale_in_policy_arn" {
+    description = "The ARN of the scale in policy"
+    type = string
+  
+}
+
+variable "endpoint" {
+    description = "The email endpoint for SNS notifications"
+    type = string
+  
+}
